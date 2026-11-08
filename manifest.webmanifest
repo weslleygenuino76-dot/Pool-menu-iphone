@@ -1,0 +1,20 @@
+{
+  "name": "POOL MENU — Assistente de Bilhar",
+  "short_name": "POOL MENU",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b100d",
+  "theme_color": "#0b100d",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

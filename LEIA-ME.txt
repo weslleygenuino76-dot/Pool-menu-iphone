@@ -1,0 +1,32 @@
+POOL MENU — IPHONE EDITION V1.0
+
+ESTA É UMA VERSÃO WEB (PWA), NÃO UM APP NATIVO.
+
+Arquivos:
+- index.html: tela do aplicativo
+- style.css: visual preto e verde
+- app.js: funções interativas
+- manifest.webmanifest e sw.js: suporte PWA/offline
+
+IMPORTANTE:
+Para instalar como aplicativo na tela inicial do iPhone, os arquivos precisam estar publicados em um endereço HTTPS.
+Abrir o index.html diretamente pelo app Arquivos não habilita a instalação PWA completa.
+
+Depois de publicar:
+1. Abra o endereço HTTPS no Safari do iPhone.
+2. Toque em Compartilhar.
+3. Escolha "Adicionar à Tela de Início".
+4. Confirme em "Adicionar".
+
+Ferramentas:
+- Mira: arraste os dois pontos no diagrama.
+- Bank Shot: estimativa geométrica simplificada.
+- Ângulos: informe dois pontos e calcule ângulo/distância.
+- Zoom: selecione uma imagem da biblioteca do iPhone.
+- Força: régua de referência.
+
+Limitações:
+- Não fica flutuando sobre o 8 Ball Pool no iOS.
+- Não captura a tela do jogo automaticamente.
+- Não lê posição de bolas nem executa tacadas.
+- A análise de mesa é manual, usando imagens que você selecionar.

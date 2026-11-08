@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b100d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="POOL MENU">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>POOL MENU</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-dot">●</span> POOL MENU</div>
+    <div class="version">IPHONE EDITION · V1.0</div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="eyebrow">ASSISTANT CONTROL PANEL</div>
+      <h1>Seu painel de bilhar.</h1>
+      <p>Ferramentas independentes para estudar jogadas, ângulos e trajetórias.</p>
+    </section>
+
+    <nav class="tabs" aria-label="Ferramentas">
+      <button class="tab active" data-page="aim">Mira</button>
+      <button class="tab" data-page="bank">Bank Shot</button>
+      <button class="tab" data-page="angle">Ângulos</button>
+      <button class="tab" data-page="zoom">Zoom</button>
+      <button class="tab" data-page="power">Força</button>
+    </nav>
+
+    <section class="page active" id="aim">
+      <div class="card">
+        <div class="card-head"><div><span class="eyebrow">FERRAMENTA 01</span><h2>Mira e trajetórias</h2></div><span class="pill">MANUAL</span></div>
+        <p class="muted">Toque e arraste os pontos no diagrama para ajustar a linha de referência.</p>
+        <canvas id="aimCanvas" width="900" height="500" aria-label="Diagrama manual de mesa de bilhar"></canvas>
+        <div class="legend"><span><i class="dot white"></i>Bola de saída</span><span><i class="dot yellow"></i>Alvo</span></div>
+        <button class="secondary full" id="resetAim">Redefinir diagrama</button>
+      </div>
+      <p class="disclaimer">Diagrama ilustrativo: não detecta bolas nem lê a partida automaticamente.</p>
+    </section>
+
+    <section class="page" id="bank">
+      <div class="card">
+        <div class="card-head"><div><span class="eyebrow">FERRAMENTA 02</span><h2>Bank Shot</h2></div><span class="pill">CÁLCULO</span></div>
+        <p class="muted">Estimativa geométrica simples de uma reflexão na borda superior da mesa.</p>
+        <label>Posição X da bola <output id="bxOut">30%</output></label>
+        <input id="bx" type="range" min="0" max="100" value="30">
+        <label>Posição Y da bola <output id="byOut">65%</output></label>
+        <input id="by" type="range" min="0" max="100" value="65">
+        <label>Ponto-alvo X na borda <output id="txOut">75%</output></label>
+        <input id="tx" type="range" min="0" max="100" value="75">
+        <div class="result" id="bankResult">Ângulo aproximado: —</div>
+        <p class="tiny muted">O cálculo não considera efeito, atrito, colisões, proporções exatas ou física do jogo.</p>
+      </div>
+    </section>
+
+    <section class="page" id="angle">
+      <div class="card">
+        <div class="card-head"><div><span class="eyebrow">FERRAMENTA 03</span><h2>Calculadora de ângulos</h2></div><span class="pill">GEOMETRIA</span></div>
+        <p class="muted">Informe dois pontos para calcular o ângulo e a distância entre eles.</p>
+        <div class="fields">
+          <label>Ponto A · X<input id="ax" type="number" value="0" step="any"></label>
+          <label>Ponto A · Y<input id="ay" type="number" value="0" step="any"></label>
+          <label>Ponto B · X<input id="cx" type="number" value="100" step="any"></label>
+          <label>Ponto B · Y<input id="cy" type="number" value="50" step="any"></label>
+        </div>
+        <button class="primary full" id="calcAngle">Calcular ângulo</button>
+        <div class="result" id="angleResult">Ângulo: 26,57° · Distância: 111,80</div>
+      </div>
+    </section>
+
+    <section class="page" id="zoom">
+      <div class="card">
+        <div class="card-head"><div><span class="eyebrow">FERRAMENTA 04</span><h2>Zoom de imagem</h2></div><span class="pill">IMAGEM LOCAL</span></div>
+        <p class="muted">Escolha uma imagem salva no iPhone para ampliar detalhes.</p>
+        <label class="upload">＋ Escolher imagem <input id="imageInput" type="file" accept="image/*"></label>
+        <label>Ampliação <output id="zoomOut">150%</output></label>
+        <input id="zoomRange" type="range" min="100" max="400" value="150">
+        <div class="zoom-stage" id="zoomStage"><span class="muted">Sua imagem aparecerá aqui.</span><img id="zoomImage" alt="Imagem selecionada para zoom"></div>
+      </div>
+    </section>
+
+    <section class="page" id="power">
+      <div class="card">
+        <div class="card-head"><div><span class="eyebrow">FERRAMENTA 05</span><h2>Guia de força</h2></div><span class="pill">REFERÊNCIA</span></div>
+        <p class="muted">Ajuste a régua para registrar uma referência de potência.</p>
+        <div class="power-value"><strong id="powerNum">50</strong><span>%</span></div>
+        <input id="powerRange" type="range" min="1" max="100" value="50">
+        <div class="power-scale"><span>Leve</span><span>Média</span><span>Forte</span></div>
+        <div class="result" id="powerText">Força média</div>
+        <p class="tiny muted">É apenas uma referência visual. Não controla a tacada nem prevê a força real necessária.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>POOL MENU · FERRAMENTAS EXTERNAS · V1.0</footer>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+    }
+  </script>
+</body>
+</html>
